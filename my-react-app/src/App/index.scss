@@ -1,5 +1,16 @@
-.App {
-  text-align: center;
+#app {
+  min-height: 100vh;
+  background-color: #FEFBF8;
+
+  #content {
+    position: fixed;
+    width: 100%;
+    background-image: url('/sunrise-van.jpg');
+    background-size: cover;
+    background-position: bottom;
+    min-height: inherit;
+    margin: 0 10vw;
+  }
 }
 
 .App-logo {
