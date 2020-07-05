@@ -13,7 +13,7 @@ This app uses run-of-the-mill `create-react-app`, so getting started is pretty s
 ## 🚀 Deployment
 Continuous deployment is enabled via GitHub Actions, so committing to master will trigger the build to upload to an S3 Bucket in AWS.
 
-## ⛽️ Contributions
+## 🟢 Contributions
 There's still a ways to go! Feel free to contribute to the following stories:
 - Add polyfills for older browsers
 - Add pagination to gas station results
