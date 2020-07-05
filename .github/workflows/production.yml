@@ -35,7 +35,7 @@ jobs:
       - name: Yarn Install
         run: |
           yarn install
-      - name: Production Build
+      - name: Yarn Build
         run: |
           yarn build
       # - name: Unit Tests
