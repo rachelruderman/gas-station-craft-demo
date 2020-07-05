@@ -12,20 +12,23 @@ export const getGasStations = async (props) => {
     } = props;
 
     const { 
-        latitude,
-        longitude,
+        coords,
         sortBy = 'distance',
         fuelType = 'reg',
         distance = 5,
     } = options;
 
+    const {
+        latitude,
+        longitude,
+    } = coords;
+
     setButtonState(FETCHING_GAS_STATIONS);
 
-    // http://www.mygasfeed.com/keys/api
-    const url = `http://${apiDomain}/stations/radius/${latitude}/${longitude}/${distance}/${fuelType}/${sortBy}/${apiKey}.json`;
+    const url = `https://${apiDomain}/stations/radius/${latitude}/${longitude}/${distance}/${fuelType}/${sortBy}/${apiKey}.json`;
 
     const response = await fetch(url);
     const responseData = await response.json();
-    
+
     setGasStations(responseData);
 }

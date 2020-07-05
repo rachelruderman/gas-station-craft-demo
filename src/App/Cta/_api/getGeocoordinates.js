@@ -24,6 +24,7 @@ export const getGeocoordinates = async (props) => {
         setButtonState(FETCHING_GEOCOORDINATES);
         const { coords } = await getCurrentPosition();
         setGeocoordinates(coords);
+        return coords;
     }
     catch (error) {
         // throw permissions error

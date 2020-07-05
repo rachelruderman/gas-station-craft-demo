@@ -15,18 +15,19 @@ export const Cta = () => {
 
     const { text } = buttonStates.find( ({state}) => (state === buttonState));
 
-
     const renderCta = () => {
         const onClick = async () => {
             try {
-                await getGeocoordinates({
+                const coords = await getGeocoordinates({
                     geocoordinates,
                     setButtonState,
                     setGeocoordinates
                 });
 
+                console.log({coords})
+
                 await getGasStations({
-                    options: {...geocoordinates},
+                    options: {coords},
                     setButtonState,
                     setGasStations
                 });
