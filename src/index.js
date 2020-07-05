@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import LogRocket from 'logrocket';
 import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+
+LogRocket.init('klhrsz/fuel-up');
 
 ReactDOM.render(
   <React.StrictMode>
