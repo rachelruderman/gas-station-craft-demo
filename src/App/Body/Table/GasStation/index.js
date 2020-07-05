@@ -31,7 +31,9 @@ export const GasStation = (props) => {
     }
 
     const renderPrice = () => {
-        return <td>${reg_price}</td>
+        const hasPrice = !isNaN(Number(reg_price));
+        const price = (hasPrice) ? `$${reg_price}` : '--';
+        return <td>{price}</td>
     }
 
     const renderDistance = () => {
