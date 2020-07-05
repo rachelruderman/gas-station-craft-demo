@@ -10,7 +10,6 @@ export const Body = () => {
     const [buttonState, setButtonState] = useState(INITIAL);
     const [geocoordinates, setGeocoordinates] = useState({});
     const [gasStations, setGasStations] = useState([]);
-    const [filters, setFilters] = useState({});
 
     const { text } = buttonStates.find( ({state}) => (state === buttonState));
 
@@ -30,6 +29,7 @@ export const Body = () => {
                 });
             }
             catch (error) {
+                console.log({error})
                 // show error banner
             }
         }

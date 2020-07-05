@@ -1,4 +1,4 @@
-import { INITIAL, ERROR, FETCHING_GAS_STATIONS, FETCHING_GEOCOORDINATES } from "./enums";
+import { INITIAL, ERROR_BROWSER_PERMISSION, ERROR_BROWSER_SUPPORT, FETCHING_GAS_STATIONS, FETCHING_GEOCOORDINATES } from "./enums";
 
 export const buttonStates = [
     {
@@ -14,7 +14,11 @@ export const buttonStates = [
         text: 'Checking prices...',
     },
     {
-        state: ERROR,
-        text: 'Something went wrong!',
+        state: ERROR_BROWSER_PERMISSION,
+        text: ':( Browser permission denied',
+    },
+    {
+        state: ERROR_BROWSER_SUPPORT,
+        text: ':( Browser not supported',
     },
 ]
