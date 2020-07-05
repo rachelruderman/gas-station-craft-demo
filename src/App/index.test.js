@@ -2,6 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { App } from './index';
 
+it('should take a snapshot', () => {
+  const { asFragment } = render(<App />)
+  expect(asFragment(<App />)).toMatchSnapshot()
+});
+
 test('renders Clearbit attribution', () => {
   const { getByText } = render(<App />);
   const element = getByText(/Logos provided by Clearbit/i);

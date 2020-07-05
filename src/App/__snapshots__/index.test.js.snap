@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="app"
+  >
+    <header>
+      <h1>
+        Running on empty?
+      </h1>
+      <h3>
+        Take a break, grab a coffee and fuel up!
+      </h3>
+    </header>
+    <div
+      id="body"
+    >
+      <button
+        class="initial"
+        id="cta"
+        type="button"
+      >
+        Find local gas stations
+      </button>
+    </div>
+    <footer>
+      <div>
+        Fuel Up © 2020
+      </div>
+      <a
+        href="https://clearbit.com"
+      >
+        Logos provided by Clearbit
+      </a>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
