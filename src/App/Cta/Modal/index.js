@@ -15,7 +15,7 @@ export const Modal = (props) => {
     console.log({gasStations})
 
     return (
-        <table id='cta'>
+        <table>
             <thead>
                 <tr>
                     <td>Distance</td>

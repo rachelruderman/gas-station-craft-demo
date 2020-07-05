@@ -1,17 +1,29 @@
 table {
+
+    margin-top: $spacing;
+    border-collapse: separate;
+    border-spacing: $spacing / 2;
+    background-color: $white-with-opacity;
+    text-align: center;
+    
     thead {
-        text-align: center;
         font-weight: bold;
+        text-decoration: underline;
     }
-    pointer-events: all !important;
 
-    td {
-        padding: ($spacing / 2) 0;
-
-        a {
-            color: #7C5042;
-            &:hover, &:active, &:focus {
-                color: #A97762;
+    tbody {
+        padding: 1rem 0;
+        tr {
+            border: 10px solid transparent;
+            margin-bottom: 1rem;
+            td {
+                padding: 0 2rem;
+                a {
+                    color: #7C5042;
+                    &:hover, &:active, &:focus {
+                        color: #A97762;
+                    }
+                }
             }
         }
     }
