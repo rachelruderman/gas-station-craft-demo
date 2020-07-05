@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { getMaxValue } from "../_util/getMaxValue";
+import { getMaxValue } from "../../../../_shared/arrays/getMaxValue";
 import { REGULAR } from "../_util/enums";
 
 export const useInitialFilters = ({allGasStations, setFilters}) => {
