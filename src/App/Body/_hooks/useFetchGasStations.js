@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { getGasStations } from "../_api/getGasStations"
-import { FETCHING_GAS_STATIONS, ERROR_TIMEOUT, ERROR_NO_RESULTS } from "../_util/enums";
+import { FETCHING_GAS_STATIONS, ERROR_TIMEOUT, ERROR_NO_RESULTS, ERROR_GENERIC } from "../_util/enums";
 
 export const useFetchGasStations = (props) => {
     const { setButtonState, setGasStations, geocoordinates } = props;
@@ -14,10 +14,16 @@ export const useFetchGasStations = (props) => {
                 setGasStations(response);
             }
             catch (error) {
-                const errorType = (error.code === '408')
-                    ? ERROR_TIMEOUT
-                    : ERROR_NO_RESULTS;
-                setButtonState(errorType);
+                switch (error.code) {
+                    case ('408'):
+                        setButtonState(ERROR_TIMEOUT);
+                        break;
+                    case (undefined):
+                        setButtonState(ERROR_GENERIC);
+                        break;
+                    default:
+                        setButtonState(ERROR_NO_RESULTS);
+                }
             }
         }
 
