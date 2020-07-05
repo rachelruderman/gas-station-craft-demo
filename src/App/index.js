@@ -24,18 +24,17 @@ export const App = () => {
     const currentYear = new Date().getFullYear();
     return (
       <footer>
-        Fuel Up &copy; {currentYear}
+        <div>Fuel Up &copy; {currentYear}</div>
+        <a href="https://clearbit.com">Logos provided by Clearbit</a>
       </footer>
     )
   }
 
   return (
     <div id="app">
-      <div id='content'>
         {renderHeader()}
         {renderBody()}
         {renderFooter()}
-      </div>
     </div>
   );
 }

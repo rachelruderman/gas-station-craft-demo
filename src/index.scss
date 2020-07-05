@@ -29,3 +29,10 @@ h3 {
   font-weight: 500;
   color: $brown;
 }
+
+a {
+  color: #7C5042;
+  &:hover, &:active, &:focus {
+      color: #A97762;
+  }
+}
