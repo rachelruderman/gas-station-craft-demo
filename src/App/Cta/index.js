@@ -10,7 +10,7 @@ export const Cta = () => {
     const [buttonState, setButtonState] = useState(INITIAL);
     const [showModal, setShowModal] = useState(false);
     const [geocoordinates, setGeocoordinates] = useState({});
-    const [gasStations, setGasStations] = useState({});
+    const [gasStations, setGasStations] = useState([]);
     const [filters, setFilters] = useState({});
 
     const { text } = buttonStates.find( ({state}) => (state === buttonState));
@@ -52,7 +52,7 @@ export const Cta = () => {
     }
 
     const renderModal = () => {
-        if (showModal) {
+        if (gasStations.length) {
             return <Modal setShowModal={setShowModal}/>
         }
     }

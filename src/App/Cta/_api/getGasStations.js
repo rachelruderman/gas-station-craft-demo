@@ -25,10 +25,9 @@ export const getGasStations = async (props) => {
 
     setButtonState(FETCHING_GAS_STATIONS);
 
-    const url = `https://${apiDomain}/stations/radius/${latitude}/${longitude}/${distance}/${fuelType}/${sortBy}/${apiKey}.json`;
+    const url = `http://${apiDomain}/stations/radius/${latitude}/${longitude}/${distance}/${fuelType}/${sortBy}/${apiKey}.json`;
 
     const response = await fetch(url);
-    const responseData = await response.json();
-
-    setGasStations(responseData);
+    const { stations } = await response.json();
+    setGasStations(stations);
 }
