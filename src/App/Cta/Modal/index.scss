@@ -1,0 +1,10 @@
+ul {
+    pointer-events: all !important;
+    text-transform: unset;
+    background-color: $white-with-opacity;
+    padding: $spacing / 2 ($spacing * 2);
+    border: 2px black solid;
+    li {
+        margin: $spacing / 2;
+    }
+}

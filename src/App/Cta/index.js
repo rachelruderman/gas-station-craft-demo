@@ -37,6 +37,10 @@ export const Cta = () => {
             }
         }
 
+        const buttonText = (gasStations.length)
+            ? `Your closest gas stations`
+            : text;
+
         return (
             <button
                 type='button'
@@ -44,7 +48,7 @@ export const Cta = () => {
                 className={buttonState}
                 onClick={onClick}
             >
-            {text}
+            {buttonText}
         </button>
         )
     }
