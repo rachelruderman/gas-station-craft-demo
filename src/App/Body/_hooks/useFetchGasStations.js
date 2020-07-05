@@ -11,18 +11,17 @@ export const useFetchGasStations = (props) => {
             try {
                 setButtonState(FETCHING_GAS_STATIONS);
                 const response = await getGasStations ({options: {latitude, longitude}});
-                setGasStations(response);
+                (response.length)
+                    ? setGasStations(response)
+                    : setButtonState(ERROR_NO_RESULTS);
             }
             catch (error) {
                 switch (error.code) {
                     case ('408'):
                         setButtonState(ERROR_TIMEOUT);
                         break;
-                    case (undefined):
-                        setButtonState(ERROR_GENERIC);
-                        break;
                     default:
-                        setButtonState(ERROR_NO_RESULTS);
+                        setButtonState(ERROR_GENERIC);
                 }
             }
         }
