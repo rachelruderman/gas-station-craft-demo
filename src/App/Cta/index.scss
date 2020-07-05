@@ -1,3 +1,5 @@
+@import 'Modal/index.scss';
+
 $angle: 8px;
 $angle-o: ($angle / 2);
 
@@ -32,7 +34,6 @@ $angle-o: ($angle / 2);
         background-color: $black;
         transform: rotate(45deg);
         z-index: -1;
-        
     }
     
     &:before {
