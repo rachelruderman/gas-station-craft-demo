@@ -6,7 +6,7 @@ Fear no more -- this simple React app will magically display a list of local gas
 
 ## 📐 Getting started
 This app uses run-of-the-mill `create-react-app`, so getting started is pretty simple:
-- Add MyGasFeed API keys to .env.template and rename to .env: http://www.mygasfeed.com/keys/api
+- Add MyGasFeed API keys to .env.template and rename to .env: http://www.mygasfeed.com/keys/api. To avoid CORS issues, use the prod domain/key.
 - Run `yarn install`
 - Run `yarn start`
 - Bombs away!
