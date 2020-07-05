@@ -1,10 +1,19 @@
-ul {
-    pointer-events: all !important;
-    text-transform: unset;
-    background-color: $white-with-opacity;
-    padding: $spacing / 2 ($spacing * 2);
-    border: 2px black solid;
-    li {
-        margin: $spacing / 2;
+table {
+    thead {
+        text-align: center;
+        font-weight: bold;
     }
+    pointer-events: all !important;
+
+    td {
+        padding: ($spacing / 2) 0;
+
+        a {
+            color: #7C5042;
+            &:hover, &:active, &:focus {
+                color: #A97762;
+            }
+        }
+    }
+
 }
