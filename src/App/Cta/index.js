@@ -51,7 +51,12 @@ export const Cta = () => {
 
     const renderModal = () => {
         if (gasStations.length) {
-            return <Modal setShowModal={setShowModal}/>
+            return (
+                <Modal
+                    gasStations={gasStations}
+                    geocoordinates={geocoordinates}
+                />
+            )
         }
     }
 
