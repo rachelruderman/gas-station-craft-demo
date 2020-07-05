@@ -3,7 +3,7 @@ import { INITIAL } from './_util/enums';
 import { buttonStates } from './_util/buttonStates';
 import { Table } from './Table';
 import { getGeocoordinates } from './_api/getGeocoordinates';
-import { getGasStations } from './_api/getGasStations';
+import { useFetchGasStations } from './_hooks/useFetchGasStations';
 
 export const Body = () => {
     
@@ -13,25 +13,15 @@ export const Body = () => {
 
     const { text } = buttonStates.find( ({state}) => (state === buttonState));
 
-    const renderCta = () => {
-        const onClick = async () => {
-            try {
-                const coords = await getGeocoordinates({
-                    geocoordinates,
-                    setButtonState,
-                    setGeocoordinates
-                });
+    useFetchGasStations ({geocoordinates, setButtonState, setGasStations});
 
-                await getGasStations({
-                    options: {coords},
-                    setButtonState,
-                    setGasStations
-                });
-            }
-            catch (error) {
-                console.log({error})
-                // show error banner
-            }
+    const renderCta = () => {
+        const onClick = () => {
+            getGeocoordinates({
+                geocoordinates,
+                setButtonState,
+                setGeocoordinates
+            });
         }
 
         const buttonText = (gasStations.length)

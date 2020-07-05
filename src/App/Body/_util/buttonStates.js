@@ -1,4 +1,4 @@
-import { INITIAL, ERROR_BROWSER_PERMISSION, ERROR_BROWSER_SUPPORT, FETCHING_GAS_STATIONS, FETCHING_GEOCOORDINATES } from "./enums";
+import { INITIAL, ERROR_BROWSER_PERMISSION, ERROR_BROWSER_SUPPORT, FETCHING_GAS_STATIONS, FETCHING_GEOCOORDINATES, ERROR_TIMEOUT } from "./enums";
 
 export const buttonStates = [
     {
@@ -15,10 +15,14 @@ export const buttonStates = [
     },
     {
         state: ERROR_BROWSER_PERMISSION,
-        text: ':( Browser permission denied',
+        text: '😿 Browser permission denied',
     },
     {
         state: ERROR_BROWSER_SUPPORT,
-        text: ':( Browser not supported',
+        text: '😿 Browser not supported',
+    },
+    {
+        state: ERROR_TIMEOUT,
+        text: '😿 Operation timed out',
     },
 ]

@@ -1,4 +1,4 @@
-import { FETCHING_GEOCOORDINATES, ERROR_BROWSER_SUPPORT, ERROR_BROWSER_PERMISSION } from "../_util/enums";
+import { FETCHING_GEOCOORDINATES, ERROR_BROWSER_SUPPORT, ERROR_BROWSER_PERMISSION, ERROR_TIMEOUT } from "../_util/enums";
 import { getCurrentPosition } from "../../../_shared/navigator/getCurrentPosition";
 
 export const getGeocoordinates = async (props) => {
@@ -25,9 +25,12 @@ export const getGeocoordinates = async (props) => {
         setButtonState(FETCHING_GEOCOORDINATES);
         const { coords } = await getCurrentPosition();
         setGeocoordinates(coords);
-        return coords;
     }
     catch (error) {
-        setButtonState(ERROR_BROWSER_PERMISSION); 
+        const errorType = (error.code === '408')
+            ? ERROR_TIMEOUT
+            : ERROR_BROWSER_PERMISSION;
+
+        setButtonState(errorType); 
     }
 }
