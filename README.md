@@ -1,35 +1,25 @@
-# Gas Prices
+# Fuel Up
 ## 👋 Welcome
+Have you ever found yourself praying to the Petrol Gods, wondering how many miles you'll need to push your vehicle until you stumble upon the nearest gas station?
 
-For your craft demonstration, we ask you to implement a small Single Page Application using React. Use the `my-react-app` boilerplate folder in this repository as a starting point. Expect to demonstrate your application and talk through your code during the next interview.
+Fear no more -- this simple React app will magically display a list of local gas stations and their prices for you!
 
-Use commit messages as you would in a real-world project. This project should take at least part of a work day, but not an entire weekend.
+## 📐 Getting started
+This app uses run-of-the-mill `create-react-app`, so getting started is pretty simple:
+- Run `yarn install`
+- Run `yarn start`
+- Bombs away!
 
+## ⛽️ Deployment
+Continuous deployment is enabled via GitHub Actions, so committing to master will trigger the build to upload to an S3 Bucket in AWS.
 
-## ⛽️ Prompt
-
-Develop a web application that displays a list of local gas stations and their prices
-
-The app should be **production-ready** in **all aspects**.
-
-
-## 📐 Requirements
-- Get the user's current location from the browser
-- Query an online API to retrieve nearby gas stations and their prices
-  - Register for an API key: [http://www.mygasfeed.com/keys/submit 🔗](http://www.mygasfeed.com/keys/submit)
-  - Usage Example: `http://api.mygasfeed.com/stations/radius/32.953695/-117.132800/8/reg/price/<API key>.json`
-- Display the stations in a list sorted by nearest location (nearest at the top)
-- Show the station with its name (brand), logo, address, prices, and distance to the station
-  - Logos can be retrieved from [Clearbit 🔗](https://clearbit.com/logo)
- - The page should be responsive, supporting mobile and desktop form factors
-- Use material design or another simple framework to stylize the page elements
-
-
-## ⏱ Use your time wisely
-It's better to deliver two working features than ten half-working ones. Matching the expected logic and making functional improvements is preferable to style enhancements.
-
-
-
-- If you have time, make functional user experience improvements
-- If you have trouble getting the location from the browser, consider hard-coded alternatives
-- If you have trouble fetching the gas data, consider using a local JSON file
+## ⛽️ Contributions
+There's still a ways to go! Feel free to contribute to the following stories:
+- [] Add polyfills for older browsers
+- [] Add pagination to gas station results
+- [] Add loading UI for slow connections
+- [] Allow users to enter a zip code
+- [] Replace MyGasFeed with an up-to-date API (some MyGasFeed results are 5 years old)
+- [] Fail build on ESLint warnings
+- [] Add desktop/mobile-friendly game users can play while they fill up
+- [] Add "Fuel for the soul" with cool quotes for users to read while they fill up
