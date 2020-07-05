@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { INITIAL } from './_util/enums';
 import { buttonStates } from './_util/buttonStates';
-import { Modal } from './Modal';
+import { Table } from './Table';
 import { getGeocoordinates } from './_api/getGeocoordinates';
 import { getGasStations } from './_api/getGasStations';
 
 export const Cta = () => {
     
     const [buttonState, setButtonState] = useState(INITIAL);
-    const [showModal, setShowModal] = useState(false);
     const [geocoordinates, setGeocoordinates] = useState({});
     const [gasStations, setGasStations] = useState([]);
     const [filters, setFilters] = useState({});
@@ -29,8 +28,6 @@ export const Cta = () => {
                     setButtonState,
                     setGasStations
                 });
-
-                setShowModal(true);
             }
             catch (error) {
                 // show error banner
@@ -56,7 +53,7 @@ export const Cta = () => {
     const renderModal = () => {
         if (gasStations.length) {
             return (
-                <Modal
+                <Table
                     gasStations={gasStations}
                     geocoordinates={geocoordinates}
                 />
