@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { GasStation } from './GasStation';
 import { RangeSlider } from './RangeSlider';
+import { useInitialFilters } from './_hooks/useInitialFilters';
 
 export const Table = (props) => {
 
     const [page, setPage] = useState(0);
 
-    const stationsPerPage = 5;
-
     const {
         gasStations: allGasStations,
     } = props;
+    
+    const [filters, setFilters] = useState({});
+
+    useInitialFilters({allGasStations, setFilters});
+    
+    const stationsPerPage = 5;
 
     const gasStations = allGasStations.slice( (page * stationsPerPage), stationsPerPage);
 
