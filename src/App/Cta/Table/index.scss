@@ -1,9 +1,8 @@
 @import 'GasStation/index.scss';
 
 table {
-
+    border: 2px solid $black;
     margin-top: $spacing;
-    border-collapse: separate;
     border-spacing: $spacing / 2;
     background-color: $white-with-opacity;
     text-align: center;
