@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '.';
+import { App } from './index';
 
-test('renders learn react link', () => {
+test('renders Clearbit attribution', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const attributionEl = getByText(/Logos provided by Clearbit/i);
+  expect(attributionEl).toBeInTheDocument();
 });
