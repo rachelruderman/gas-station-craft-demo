@@ -50,7 +50,7 @@ export const Cta = () => {
         )
     }
 
-    const renderModal = () => {
+    const renderGasStations = () => {
         if (gasStations.length) {
             return (
                 <Table
@@ -64,7 +64,7 @@ export const Cta = () => {
     return (
         <>
             {renderCta()}
-            {renderModal()}
+            {renderGasStations()}
         </>
     )
 }
