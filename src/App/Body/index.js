@@ -40,6 +40,7 @@ export const Body = () => {
 
         return (
             <button
+                data-testid='cta-button'
                 type='button'
                 id='cta'
                 className={buttonState}

@@ -18,6 +18,7 @@ exports[`should take a snapshot 1`] = `
     >
       <button
         class="initial"
+        data-testid="cta-button"
         id="cta"
         type="button"
       >
