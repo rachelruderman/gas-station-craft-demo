@@ -20,5 +20,5 @@ export const useInitialFilters = ({allGasStations, setFilters}) => {
 
 
         setFilters(initialFilters);
-    });
+    }, []);
 }

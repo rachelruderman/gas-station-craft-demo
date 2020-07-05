@@ -26,6 +26,5 @@ export const useFetchGasStations = (props) => {
             apiCall();
         }
 
-    // eslint-disable-next-line
     }, [latitude, longitude])
 }
