@@ -24,8 +24,6 @@ export const Cta = () => {
                     setGeocoordinates
                 });
 
-                console.log({coords})
-
                 await getGasStations({
                     options: {coords},
                     setButtonState,
