@@ -8,6 +8,10 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  * {
+    font-family: Lato, sans-serif;
+  }
 }
 
 h1 {
@@ -21,5 +25,4 @@ h1 {
 h3 {
   font-weight: 500;
   color: #56260E;
-  font-family: Lato, sans-serif;
 }
