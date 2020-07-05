@@ -20,9 +20,10 @@ export const App = () => {
   }
 
   const renderFooter = () => {
+    const currentYear = new Date().getFullYear();
     return (
       <footer>
-        i am footer
+        Fuel Up &copy; {currentYear}
       </footer>
     )
   }
