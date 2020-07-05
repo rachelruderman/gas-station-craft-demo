@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cta } from './Cta';
+import { Body } from './Body';
 
 export const App = () => {
 
@@ -12,13 +12,7 @@ export const App = () => {
     )
   }
 
-  const renderBody = () => {
-    return (
-      <div id='body'>
-        <Cta/>
-      </div>
-    )
-  }
+  const renderBody = () => <Body/>;
 
   const renderFooter = () => {
     const currentYear = new Date().getFullYear();

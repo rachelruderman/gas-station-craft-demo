@@ -5,7 +5,7 @@ import { Table } from './Table';
 import { getGeocoordinates } from './_api/getGeocoordinates';
 import { getGasStations } from './_api/getGasStations';
 
-export const Cta = () => {
+export const Body = () => {
     
     const [buttonState, setButtonState] = useState(INITIAL);
     const [geocoordinates, setGeocoordinates] = useState({});
@@ -62,9 +62,9 @@ export const Cta = () => {
     }
 
     return (
-        <>
+        <div id='body'>
             {renderCta()}
             {renderGasStations()}
-        </>
+        </div>
     )
 }
