@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export const RangeSlider = () => {
+export const RangeSlider = (props) => {
+    
+    const {
+        min,
+        max,
+        initialValue
+    } = props;
+
+    const [value, setValue] = useState(initialValue);
+
     return (
         <div className="slidecontainer">
-            <input type="range" min="1" max="100" value="50" className="slider" id="myRange"/>
+            <input
+                type="range"
+                min={min}
+                max={max}
+                value={value}
+                className="slider"
+            />
         </div>
     )
 }
