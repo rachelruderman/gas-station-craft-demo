@@ -17,9 +17,16 @@ table {
             border: 10px solid transparent;
             margin-bottom: 1rem;
             td {
+                img {
+                    height: $spacing / 2;
+                }
                 padding: 0 2rem;
             }
         }
+    }
+
+    td.logo {
+        padding: 0;
     }
 
 }

@@ -18,6 +18,7 @@ export const Modal = (props) => {
         <table>
             <thead>
                 <tr>
+                    <td className='logo'/>
                     <td>Distance</td>
                     <td>Station</td>
                     <td>Gas Price</td>
@@ -49,10 +50,13 @@ export const Modal = (props) => {
 
                     return (
                         <tr key={id}>
+                            <td className='logo'>
+                                <img src={`//logo.clearbit.com/${name}.com`} alt='logo' onError={(e) => {e.target.style.display = 'none'}}/>
+                            </td>
                             <td>{miles}</td>
                             <td>
                                 <a href={href} alt='directions' target='_blank' rel='noopener noreferrer'>
-                                    {name}
+                                {name}
                                 </a>
                             </td>
                             <td>${reg_price}</td>
