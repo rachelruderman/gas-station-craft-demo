@@ -1,4 +1,5 @@
 import React from 'react';
+import { Cta } from './Cta';
 
 export const App = () => {
 
@@ -14,7 +15,7 @@ export const App = () => {
   const renderBody = () => {
     return (
       <div id='body'>
-        <button type='button'>Find local gas stations</button>
+        <Cta/>
       </div>
     )
   }
