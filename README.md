@@ -6,6 +6,7 @@ Fear no more -- this simple React app will magically display a list of local gas
 
 ## 📐 Getting started
 This app uses run-of-the-mill `create-react-app`, so getting started is pretty simple:
+- Add MyGasFeed API keys to .env.template and rename to .env: http://www.mygasfeed.com/keys/api
 - Run `yarn install`
 - Run `yarn start`
 - Bombs away!
@@ -23,3 +24,4 @@ There's still a ways to go! Feel free to contribute to the following stories:
 - Fail build on ESLint warnings
 - Add desktop/mobile-friendly game users can play while they fill up
 - Add "Fuel for the soul" with cool quotes for users to read while they fill up
+- Add more robust error handling
