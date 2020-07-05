@@ -9,7 +9,7 @@ export const RangeSlider = (props) => {
     } = props;
 
     const [value, setValue] = useState(initialValue);
-
+    console.log({setValue})
     return (
         <div className="slidecontainer">
             <input

@@ -5,14 +5,14 @@ import { useInitialFilters } from './_hooks/useInitialFilters';
 
 export const Table = (props) => {
 
-    const [page, setPage] = useState(0);
+    const [page] = useState(0);
 
     const {
         gasStations: allGasStations,
     } = props;
     
     const [filters, setFilters] = useState({});
-
+    console.log({filters})
     useInitialFilters({allGasStations, setFilters});
     
     const stationsPerPage = 5;

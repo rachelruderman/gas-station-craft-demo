@@ -18,7 +18,7 @@ export const useInitialFilters = ({allGasStations, setFilters}) => {
             property: `${initialFilters.fuelType}_price`
         });
 
-
         setFilters(initialFilters);
+    // eslint-disable-next-line
     }, []);
 }
