@@ -1,4 +1,4 @@
-import { INITIAL, ERROR, FETCHING_LOCATION, FETCHING_GAS_STATIONS } from "./enums";
+import { INITIAL, ERROR, FETCHING_GAS_STATIONS, FETCHING_GEOCOORDINATES } from "./enums";
 
 export const buttonStates = [
     {
@@ -6,7 +6,7 @@ export const buttonStates = [
         text: 'Find local gas stations',
     },
     {
-        state: FETCHING_LOCATION,
+        state: FETCHING_GEOCOORDINATES,
         text: 'Fetching location...',
     },
     {

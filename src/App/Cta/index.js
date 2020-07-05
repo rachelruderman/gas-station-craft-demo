@@ -1,49 +1,67 @@
 import React, { useState } from 'react';
-import { INITIAL, FETCHING_LOCATION, ERROR } from './_util/enums';
+import { INITIAL, FETCHING_GEOCOORDINATES } from './_util/enums';
 import { buttonStates } from './_util/buttonStates';
-import { getMyGasFeedApi } from './_api/getMyGasFeedApi';
+import { Modal } from './Modal';
+import { getCurrentPosition } from '../../_shared/navigator/getCurrentPosition';
 
 export const Cta = () => {
-
-    const initialButtonState = INITIAL;
-    const initialPostalCode = undefined;
     
-    const [buttonState, setButtonState] = useState(initialButtonState);
-    const [postalCode, setPostalCode] = useState(initialPostalCode);
+    const [buttonState, setButtonState] = useState(INITIAL);
+    const [showModal, setShowModal] = useState(false);
+    const [geocoordinates, setGeocoordinates] = useState({});
 
     const { text } = buttonStates.find( ({state}) => (state === buttonState));
 
+    const fetchGeocoordinates = async () => {
+        const hasBrowserSupport = Boolean(navigator.geolocation);
+        const areFetchedAlready = Boolean(geocoordinates.latitude);
 
-    const getPostalCode = async () => {
-        const { geolocation } = navigator;
-        const isGeolocationSupported = Boolean(geolocation);
-
-        if (isGeolocationSupported) {
-            setButtonState(FETCHING_LOCATION);
-            const response = await geolocation.getCurrentPosition( async ({coords}) => {
-                const { latitude, longitude } = coords;
-                return await getMyGasFeedApi({latitude, longitude});
-            })
-
-            console.log({response})
+        if (areFetchedAlready) {
+            return;
         }
 
-        // return setButtonState(ERROR);
+        if (!hasBrowserSupport) {
+            // throw browser support error
+        }
+
+        try {
+            setButtonState(FETCHING_GEOCOORDINATES);
+            const { coords } = await getCurrentPosition();
+            setGeocoordinates(coords);
+        }
+        catch (error) {
+            // throw permissions error
+        }
     }
 
-    const onClick = () => {
-        // pointer events are only enabled in INITIAL state
-        setButtonState(FETCHING_LOCATION);
-        const postalCode = getPostalCode();
-    }
-    return (
-        <button
-            type='button'
-            id='cta'
-            className={buttonState}
-            onClick={onClick}
-        >
+    const renderCta = () => {
+        const onClick = async () => {
+            await fetchGeocoordinates();
+            setShowModal(true);
+        }
+
+        return (
+            <button
+                type='button'
+                id='cta'
+                className={buttonState}
+                onClick={onClick}
+            >
             {text}
         </button>
+        )
+    }
+
+    const renderModal = () => {
+        if (showModal) {
+            return <Modal setShowModal={setShowModal}/>
+        }
+    }
+
+    return (
+        <>
+            {renderCta()}
+            {renderModal()}
+        </>
     )
 }
