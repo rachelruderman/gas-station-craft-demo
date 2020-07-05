@@ -1,18 +1,20 @@
 #app {
-  min-height: 100vh;
   background-color: #FEFBF8;
 
   #content {
-    position: fixed;
-    width: 100%;
+    width: inherit;
 
     background-image: linear-gradient(white, black), url('/sunrise-van.jpg');
     background-blend-mode: screen;
     background-size: cover;
     background-position: bottom;
     
-    min-height: inherit;
-    padding: 2rem;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    > * {
+      padding: $spacing;
+    }
 
     header {
       h1 {
@@ -24,13 +26,15 @@
       button {
         background-color: white;
         border-radius: 20px;
-        padding: 1rem 3rem;
+        padding: ($spacing / 2) ($spacing * 1.5);
         cursor: pointer;
         border: none;
       }
     }
 
     footer {
+      padding-bottom: ($spacing / 2);
+      opacity: 0.8;
       position: fixed;
       bottom: 0;
       color: white;
