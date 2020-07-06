@@ -6,7 +6,7 @@ export const getMaxValue = ({array, property}) => {
             .map(element => extractNumber(element[property]))
             .filter(element => !isNaN(element)); // numbers only
 
-        return Math.max(...mappedArray, 0);
+        return Math.max(...mappedArray);
     }
     return Math.max(array);
 }

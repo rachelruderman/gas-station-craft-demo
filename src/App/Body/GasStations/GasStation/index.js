@@ -3,6 +3,12 @@ import React from 'react';
 export const GasStation = (props) => {
 
     const {
+        gasStation,
+        className,
+        fuelTypeProperty,
+    } = props;
+
+    const {
         station,
         id,
         address,
@@ -10,8 +16,7 @@ export const GasStation = (props) => {
         city,
         zip,
         country,
-        reg_price
-    } = props.gasStation;
+    } = gasStation;
 
     const name = (station === 'Unbranded')
         ? `Mystery station`
@@ -31,9 +36,8 @@ export const GasStation = (props) => {
     }
 
     const renderPrice = () => {
-        const hasPrice = !isNaN(Number(reg_price));
-        const price = (hasPrice) ? `$${reg_price}` : '--';
-        return <td>{price}</td>
+        const price = gasStation[fuelTypeProperty];
+        return <td className='price'>${price}</td>
     }
 
     const renderDistance = () => {
@@ -54,7 +58,7 @@ export const GasStation = (props) => {
     }
 
     return (
-        <tr key={id}>
+        <tr key={id} className={className}>
             {renderLogo()}
             {renderDistance()}
             {renderName()}
