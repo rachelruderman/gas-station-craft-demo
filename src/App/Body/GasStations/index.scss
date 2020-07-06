@@ -36,6 +36,7 @@
         display: flex;
         border-radius: 5px;  
         overflow: hidden;
+        margin-top: $spacing / 6;
         > * {
             flex: 1;
             background-color: $black;
@@ -43,7 +44,8 @@
             border: none;
             outline: none;
             transition: all 0.25s ease;
-
+            font-size: 0.9rem;
+            padding: 2px 8px;
 
             &.active {
                 background-color: $gray;

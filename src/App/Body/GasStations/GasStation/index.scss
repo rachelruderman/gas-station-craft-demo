@@ -2,8 +2,10 @@ tbody {
     tr {
         &.lowest-price {
             td.price {
-                background-color: transparentize($color: $green, $amount: 0.5);
+                background-color: transparentize($color: $green, $amount: 0.7);
                 border-radius: 6px;
+                font-weight: bold;
+                color: black;
             }
         }
         td {
