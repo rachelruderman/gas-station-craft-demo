@@ -1,0 +1,35 @@
+@import 'GasStation/index.scss';
+@import 'RangeSlider/index.scss';
+
+#gas-stations {
+    table {
+        border: 2px solid $black;
+        margin-top: $spacing;
+        border-spacing: $spacing / 2;
+        background-color: $white-with-opacity;
+        text-align: center;
+        
+        thead {
+            font-weight: bold;
+            text-decoration: underline;
+            td {
+                &:nth-child(2) {
+                    padding-right: $spacing / 2;
+                }
+            }
+        }
+    
+        tbody {
+            padding: 1rem 0;
+            tr {
+                border: 10px solid transparent;
+                margin-bottom: 1rem;
+            }
+        }
+    
+        td.logo {
+            padding: 0;
+        }
+    
+    }
+}

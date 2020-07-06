@@ -6,13 +6,13 @@ export const RangeSlider = (props) => {
     const {
         rangeSlider,
         updateFilter,
-        value,
     } = props;
 
     const {
         type,
         min,
         max,
+        value,
     } = rangeSlider;
 
     const text = `${sentenceCase(type)}: ${value}`;

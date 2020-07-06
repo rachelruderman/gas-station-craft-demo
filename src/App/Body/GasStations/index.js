@@ -4,10 +4,9 @@ import { RangeSlider } from './RangeSlider';
 import { useInitialFilters } from './_hooks/useInitialFilters';
 import { getMaxValue } from '../../../_shared/arrays/getMaxValue';
 import { getMinValue } from '../../../_shared/arrays/getMinValue';
-import { REGULAR } from './_util/enums';
-import { extractNumber } from '../../../_shared/strings/extractNumber';
+import { REGULAR, fuelTypes } from './_util/fuelTypes';
 
-export const Table = (props) => {
+export const GasStations = (props) => {
     const {
         gasStations: allGasStations,
     } = props;
@@ -50,7 +49,7 @@ export const Table = (props) => {
     const renderFilters = () => {
         const rangeSliders = [
             {
-                type: `${filters.fuelType}_price`,
+                type: `${filters.fuelType}_price`
             },
             {
                 type: 'distance',
@@ -59,42 +58,60 @@ export const Table = (props) => {
                 type: 'fuelType',
                 min: 1,
                 max: 3,
-                initialValue: REGULAR,
+                value: filters.fuelType,
             },
         ].map(rangeSlider => {
             const { 
                 type,
                 min = getMinValue({array: allGasStations, property: type}),
                 max = getMaxValue({array: allGasStations, property: type}),
-                initialValue = extractNumber(gasStations[0][type]),
+                value = gasStations[4][rangeSlider.type],
              } = rangeSlider;
 
             return ({
                 type,
                 min,
                 max,
-                initialValue,
+                value
             })
         })
 
-        console.log({rangeSliders})
+        console.log({rangeSliders, filters})
+
+        const renderFuelTypes = () => {
+            return (
+                <div>
+                    Fuel Types
+                    <div id='fuel-types'>
+                        {fuelTypes.map(fuelType => {
+                            const onClick = () => updateFilter({fuelType});
+                            return (
+                                <button key={fuelType} onClick={onClick} type='button'>
+                                    {fuelType}
+                                </button>
+                            )
+                        })}
+                    </div>
+                </div>
+            )
+        }
 
         return (
             <div>
                 {rangeSliders.map(rangeSlider => (
                     <RangeSlider
-                        value={filters[rangeSlider.type]}
                         updateFilter={updateFilter}
                         key={rangeSlider.type}
                         rangeSlider={rangeSlider}
                     />
                 ))}
+                {renderFuelTypes()}
             </div>
         )
     }
 
     return (
-        <div>
+        <div id='gas-stations'>
             {renderFilters()}
             {renderTable()}
         </div>

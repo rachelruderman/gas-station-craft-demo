@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { INITIAL } from './_util/enums';
 import { buttonStates } from './_util/buttonStates';
-import { Table } from './Table';
+import { GasStations } from './GasStations';
 import { getGeocoordinates } from './_api/getGeocoordinates';
 import { useFetchGasStations } from './_hooks/useFetchGasStations';
 
@@ -44,7 +44,7 @@ export const Body = () => {
     const renderGasStations = () => {
         if (gasStations.length) {
             return (
-                <Table
+                <GasStations
                     gasStations={gasStations}
                     geocoordinates={geocoordinates}
                 />

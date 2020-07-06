@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { getMaxValue } from "../../../../_shared/arrays/getMaxValue";
-import { REGULAR } from "../_util/enums";
+import { fuelTypes } from "../_util/fuelTypes";
 
 export const useInitialFilters = ({allGasStations, setFilters}) => {
     useEffect(() => {
         const initialFilters = {
-            fuelType: REGULAR,
+            fuelType: fuelTypes[0],
         };
 
         initialFilters.maxDistance = getMaxValue({
@@ -17,7 +17,7 @@ export const useInitialFilters = ({allGasStations, setFilters}) => {
             array: allGasStations, 
             property: `${initialFilters.fuelType}_price`
         });
-
+        
         setFilters(initialFilters);
     // eslint-disable-next-line
     }, []);
