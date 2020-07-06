@@ -22,7 +22,12 @@ export const GasStations = (props) => {
 
     useInitialFilters({allGasStations, setFilters});    
 
-    const gasStations = allGasStations.slice( (page * stationsPerPage), stationsPerPage);
+    const gasStations = allGasStations
+        .filter(gasStation => {
+            const hasGasType = (gasStation[`${filters.fuelType}_price`] !== 'N/A');
+            return hasGasType;
+        })
+        .slice( (page * stationsPerPage), stationsPerPage);
 
     const renderTable = () => {
         return (
