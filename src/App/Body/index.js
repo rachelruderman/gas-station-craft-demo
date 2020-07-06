@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { INITIAL } from './_util/enums';
-import { buttonStates } from './_util/buttonStates';
+import { buttonStates, INITIAL } from './_util/buttonStates';
 import { GasStations } from './GasStations';
 import { getGeocoordinates } from './_api/getGeocoordinates';
 import { useFetchGasStations } from './_hooks/useFetchGasStations';

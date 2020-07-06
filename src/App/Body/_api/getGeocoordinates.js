@@ -1,4 +1,4 @@
-import { FETCHING_GEOCOORDINATES, ERROR_BROWSER_SUPPORT, ERROR_BROWSER_PERMISSION, ERROR_TIMEOUT } from "../_util/enums";
+import { FETCHING_GEOCOORDINATES, ERROR_BROWSER_SUPPORT, ERROR_BROWSER_PERMISSION, ERROR_TIMEOUT } from "../_util/buttonStates";
 import { getCurrentPosition } from "../../../_shared/navigator/getCurrentPosition";
 
 export const getGeocoordinates = async (props) => {
