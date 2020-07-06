@@ -77,8 +77,8 @@ export const GasStations = (props) => {
             { type: priceProperty, filterKey: 'maxPrice' },
             { type: 'distance', filterKey: 'maxDistance' },
         ].map( ({type, filterKey}) => {
-            const min = getMinValue({array: allGasStations, property: type});
-            const max = getMaxValue({array: allGasStations, property: type});
+            const min = getMinValue({array: allGasStations, property: type}).toString();
+            const max = getMaxValue({array: allGasStations, property: type}).toString();
             const lastGasStation = gasStations[gasStations.length - 1];
             const value = extractNumber(lastGasStation[type]);
             return ({

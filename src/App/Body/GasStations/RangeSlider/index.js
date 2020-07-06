@@ -32,8 +32,8 @@ export const RangeSlider = (props) => {
                 <input
                     onChange={onChange}
                     type="range"
-                    min={min.toString()}
-                    max={max.toString()}
+                    min={min}
+                    max={max}
                     value={value}
                     className="slider"
                 />
