@@ -32,15 +32,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Yarn Install
+      - name: Yarn Intall and Build
         run: |
           yarn install
-      - name: Yarn Build
+          yarn build
         env:
           REACT_APP_MY_GAS_FEED_API_KEY: ${{ secrets.REACT_APP_MY_GAS_FEED_API_KEY }}
           REACT_APP_MY_GAS_FEED_API_DOMAIN: ${{ secrets.REACT_APP_MY_GAS_FEED_API_DOMAIN }}
-        run: |
-          yarn build
       - name: Yarn Test
         run: |
           yarn test
