@@ -25,7 +25,7 @@ export const Body = () => {
         }
 
         const buttonText = (gasStations.length)
-            ? `Your closest gas stations`
+            ? `Five closest gas stations`
             : text;
 
         return (
