@@ -38,6 +38,18 @@ export const GasStations = (props) => {
         .slice( (page * stationsPerPage), stationsPerPage);
 
     const renderTable = () => {
+
+        if (!gasStations.length) {
+            return (
+                <table>
+                    <tr>
+                        Ya better start walkin'... No gas stations found!&nbsp;
+                        <span role='img' aria-label='shocked'>🙀</span>
+                    </tr>
+                </table>
+            )
+        }
+
         const lowestPrice = getMinValue({
             array: gasStations,
             property: priceProperty
