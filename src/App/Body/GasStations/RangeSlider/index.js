@@ -1,5 +1,4 @@
 import React from 'react'
-import { sentenceCase } from 'change-case';
 
 export const RangeSlider = (props) => {
 
@@ -10,31 +9,39 @@ export const RangeSlider = (props) => {
 
     const {
         type,
+        value,
+        filterKey,
         min,
         max,
-        value,
     } = rangeSlider;
 
-    console.log({min, max, value})
-    const text = `${sentenceCase(type)}: ${value}`;
+    const renderText = () => {
+        if (filterKey === 'maxDistance') {
+            const noun = (value === 1) ? 'mile' : 'miles';
+            return `Max Distance: ${value} ${noun}`;
+        }
+        if (filterKey === 'maxPrice') {
+            return `Max Price: $${Number(value).toFixed(2)}`;
+        }
+    }
+
+    const factorOf = 100;
 
     const onChange = (e) => {
-        const { value } = e.target;
-        console.log({value, type})
-        return;
-        updateFilter( {[type]: e.target.value} )
+        const newValue = (e.target.value / factorOf).toString();
+        updateFilter( {[filterKey]: newValue} )
     };
 
     return (
         <>
-            {text}
+            {renderText()}
             <div className={`slidecontainer ${type}`}>
                 <input
                     onChange={onChange}
                     type="range"
-                    min={min}
-                    max={max}
-                    value={value}
+                    min={min * factorOf}
+                    max={max * factorOf}
+                    value={value * factorOf}
                     className="slider"
                 />
             </div>
