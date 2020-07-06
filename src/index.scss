@@ -2,6 +2,7 @@ $spacing: 2rem;
 $black: #23160F;
 $brown: #56260E;
 $white-with-opacity: rgba(255, 255, 255, 0.8);
+$gray: #d3d3d3;
 
 @import 'App/index.scss';
 @import url(https://fonts.googleapis.com/css?family=Righteous:300,400,700);
@@ -34,5 +35,11 @@ a {
   color: #7C5042;
   &:hover, &:active, &:focus {
       color: #A97762;
+  }
+}
+
+button {
+  &:active, &:focus {
+    outline: none;
   }
 }
