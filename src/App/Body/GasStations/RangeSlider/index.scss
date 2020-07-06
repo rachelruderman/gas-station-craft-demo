@@ -1,10 +1,11 @@
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
-  }
 
   $picker-size: 25px;
   $picker-border-radius: 50%;
   $slider-height: 15px;
+  
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  margin: ($spacing / 3) 0;
 
   /* The slider itself */
   .slider {
@@ -36,3 +37,4 @@
     background: $green;
     cursor: pointer;
   }
+}
