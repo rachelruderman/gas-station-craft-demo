@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { getGasStations } from "../_api/getGasStations"
-import { FETCHING_GAS_STATIONS, ERROR_TIMEOUT, ERROR_NO_RESULTS, ERROR_GENERIC } from "../_util/buttonStates";
+import { FETCHING_GAS_STATIONS, ERROR_NO_RESULTS } from "../_util/buttonStates";
+import myGasFeedResponse from '../_util/myGasFeedResponse.json';
 
 export const useFetchGasStations = (props) => {
     const { setButtonState, setGasStations, geocoordinates } = props;
@@ -16,13 +17,18 @@ export const useFetchGasStations = (props) => {
                     : setButtonState(ERROR_NO_RESULTS);
             }
             catch (error) {
-                switch (error.code) {
-                    case ('408'):
-                        setButtonState(ERROR_TIMEOUT);
-                        break;
-                    default:
-                        setButtonState(ERROR_GENERIC);
-                }
+                // This will always throw an error because the site is HTTPS and MyGasFeed is HTTP
+                // Return hardcoded response instead
+
+                setGasStations(myGasFeedResponse.stations);
+
+                // switch (error.code) {
+                //     case ('408'):
+                //         setButtonState(ERROR_TIMEOUT);
+                //         break;
+                //     default:
+                //         setButtonState(ERROR_GENERIC);
+                // }
             }
         }
 
