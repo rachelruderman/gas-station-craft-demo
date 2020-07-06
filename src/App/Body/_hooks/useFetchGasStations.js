@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { getGasStations } from "../_api/getGasStations"
-import { FETCHING_GAS_STATIONS, ERROR_TIMEOUT, ERROR_NO_RESULTS, ERROR_GENERIC } from "../_util/buttonTypes";
+import { FETCHING_GAS_STATIONS, ERROR_TIMEOUT, ERROR_NO_RESULTS, ERROR_GENERIC } from "../_util/buttonStates";
 
 export const useFetchGasStations = (props) => {
     const { setButtonState, setGasStations, geocoordinates } = props;
