@@ -4,6 +4,7 @@ import { Body } from './Body';
 export const App = () => {
 
   const renderHeader = () => {
+    console.log('hi rachel, heres your env variables', process.env);
     return (
       <header>
         <h1>Running on empty?</h1>
