@@ -3,7 +3,6 @@ import { capitalCase } from 'change-case';
 import { GasStation } from './GasStation';
 import { RangeSlider } from './RangeSlider';
 import { useInitialFilters } from './_hooks/useInitialFilters';
-import { getMaxValue } from '../../../_shared/arrays/getMaxValue';
 import { getMinValue } from '../../../_shared/arrays/getMinValue';
 import { fuelTypes } from './_util/fuelTypes';
 import { extractNumber } from '../../../_shared/strings/extractNumber';
@@ -73,22 +72,29 @@ export const GasStations = (props) => {
     }
 
     const renderFilters = () => {
-        const rangeSliders = [
-            { type: priceProperty, filterKey: 'maxPrice' },
-            { type: 'distance', filterKey: 'maxDistance' },
-        ].map( ({type, filterKey}) => {
-            const min = getMinValue({array: allGasStations, property: type}).toString();
-            const max = getMaxValue({array: allGasStations, property: type}).toString();
-            const lastGasStation = gasStations[gasStations.length - 1];
-            const value = extractNumber(lastGasStation[type]);
-            return ({
-                type,
-                filterKey,
-                min,
-                max,
-                value
+
+        const renderRangeSliders = () => {
+            const rangeSliders = [
+                { type: priceProperty, filterKey: 'maxPrice' },
+                { type: 'distance', filterKey: 'maxDistance' },
+            ].map( ({type, filterKey}) => {
+                const lastGasStation = gasStations[gasStations.length - 1];
+                const value = extractNumber(lastGasStation[type]) * 10;
+                return ({
+                    type,
+                    filterKey,
+                    value
+                })
             })
-        })
+
+            return rangeSliders.map(rangeSlider => (
+                <RangeSlider
+                    updateFilter={updateFilter}
+                    key={rangeSlider.type}
+                    rangeSlider={rangeSlider}
+                />
+            ))
+        }
 
         const renderFuelTypes = () => {
             return (
@@ -116,13 +122,7 @@ export const GasStations = (props) => {
 
         return (
             <div>
-                {rangeSliders.map(rangeSlider => (
-                    <RangeSlider
-                        updateFilter={updateFilter}
-                        key={rangeSlider.type}
-                        rangeSlider={rangeSlider}
-                    />
-                ))}
+                {renderRangeSliders()}
                 {renderFuelTypes()}
             </div>
         )
