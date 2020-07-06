@@ -1,5 +1,9 @@
 @import 'Body/index.scss';
 
+#root {
+  overflow-x: hidden;
+}
+
 #app {
   width: inherit;
 
