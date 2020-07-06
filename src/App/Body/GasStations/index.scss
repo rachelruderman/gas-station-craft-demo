@@ -30,7 +30,25 @@
         td.logo {
             padding: 0;
         }
-    
+    }
+
+    #fuel-types {
+        display: flex;
+        border-radius: 5px;  
+        overflow: hidden;
+        > * {
+            flex: 1;
+            background-color: $black;
+            color: $white-with-opacity;
+            border: none;
+            outline: none;
+            transition: all 0.25s ease;
+
+
+            &.active {
                 background-color: $gray;
+                color: $black;
+            }
+        }
     }
 }

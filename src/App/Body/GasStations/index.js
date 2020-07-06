@@ -4,7 +4,7 @@ import { RangeSlider } from './RangeSlider';
 import { useInitialFilters } from './_hooks/useInitialFilters';
 import { getMaxValue } from '../../../_shared/arrays/getMaxValue';
 import { getMinValue } from '../../../_shared/arrays/getMinValue';
-import { REGULAR, fuelTypes } from './_util/fuelTypes';
+import { fuelTypes } from './_util/fuelTypes';
 
 export const GasStations = (props) => {
     const {
@@ -48,25 +48,12 @@ export const GasStations = (props) => {
 
     const renderFilters = () => {
         const rangeSliders = [
-            {
-                type: `${filters.fuelType}_price`
-            },
-            {
-                type: 'distance',
-            },
-            {
-                type: 'fuelType',
-                min: 1,
-                max: 3,
-                value: filters.fuelType,
-            },
-        ].map(rangeSlider => {
-            const { 
-                type,
-                min = getMinValue({array: allGasStations, property: type}),
-                max = getMaxValue({array: allGasStations, property: type}),
-                value = gasStations[4][rangeSlider.type],
-             } = rangeSlider;
+            `${filters.fuelType}_price`,
+            'distance',
+        ].map(type => {
+            const min = getMinValue({array: allGasStations, property: type});
+            const max = getMaxValue({array: allGasStations, property: type});
+            const value = gasStations[4][type];
 
             return ({
                 type,
@@ -85,8 +72,14 @@ export const GasStations = (props) => {
                     <div id='fuel-types'>
                         {fuelTypes.map(fuelType => {
                             const onClick = () => updateFilter({fuelType});
+                            const className = (fuelType === filters.fuelType) ? 'active' : '';
+
                             return (
-                                <button key={fuelType} onClick={onClick} type='button'>
+                                <button
+                                    key={fuelType}
+                                    className={className}
+                                    onClick={onClick}
+                                    type='button'>
                                     {fuelType}
                                 </button>
                             )
