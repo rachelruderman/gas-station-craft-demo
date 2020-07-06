@@ -36,9 +36,9 @@ jobs:
         run: |
           yarn install
       - name: Yarn Build
-          env:
-            REACT_APP_MY_GAS_FEED_API_KEY: ${{ secrets.REACT_APP_MY_GAS_FEED_API_KEY }}
-            REACT_APP_MY_GAS_FEED_API_DOMAIN: ${{ secrets.REACT_APP_MY_GAS_FEED_API_DOMAIN }}
+        env: |
+          REACT_APP_MY_GAS_FEED_API_KEY: ${{ secrets.REACT_APP_MY_GAS_FEED_API_KEY }}
+          REACT_APP_MY_GAS_FEED_API_DOMAIN: ${{ secrets.REACT_APP_MY_GAS_FEED_API_DOMAIN }}
         run: |
           yarn build
       - name: Yarn Test
