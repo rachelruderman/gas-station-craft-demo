@@ -6,6 +6,7 @@ import { useInitialFilters } from './_hooks/useInitialFilters';
 import { getMaxValue } from '../../../_shared/arrays/getMaxValue';
 import { getMinValue } from '../../../_shared/arrays/getMinValue';
 import { fuelTypes } from './_util/fuelTypes';
+import { extractNumber } from '../../../_shared/strings/extractNumber';
 
 export const GasStations = (props) => {
     const {
@@ -22,12 +23,18 @@ export const GasStations = (props) => {
 
     useInitialFilters({allGasStations, setFilters});    
 
+    if (!filters.fuelType) {
+        return null;
+    }
+    
     const fuelTypeProperty = `${filters.fuelType}_price`;
 
     const gasStations = allGasStations
         .filter(gasStation => {
-            const hasGasType = (gasStation[fuelTypeProperty] !== 'N/A');
-            return hasGasType;
+            const isMatchGasType = (gasStation[fuelTypeProperty] !== 'N/A');
+            const isMatchDistance = (extractNumber(gasStation.distance) < filters.maxDistance);
+            const isMatchPrice = (extractNumber(gasStation.price) < filters.maxPrice);
+            return (isMatchGasType && isMatchDistance && isMatchPrice);
         })
         .slice( (page * stationsPerPage), stationsPerPage);
 
@@ -73,8 +80,9 @@ export const GasStations = (props) => {
         ].map(type => {
             const min = getMinValue({array: allGasStations, property: type});
             const max = getMaxValue({array: allGasStations, property: type});
-            const value = gasStations[4][type];
-            console.log({type, min, max, value})
+            const lastGasStation = gasStations[gasStations.length - 1];
+            const value = extractNumber(lastGasStation[type]);
+
             return ({
                 type,
                 min,
