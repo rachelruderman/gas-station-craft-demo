@@ -24,11 +24,11 @@ export const GasStation = (props) => {
 
     const renderName = () => {
         const urlEscapedAddress = `${address} ${city} ${zip} ${country}`.replace(/ /g, '+');
-        const href = `https://www.google.com/maps/dir/?api=1&destination=${urlEscapedAddress}&travelmode=driving`;
+        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${urlEscapedAddress}&travelmode=driving`;
 
         return (
             <td>
-                <a href={href} alt='directions' target='_blank' rel='noopener noreferrer'>
+                <a href={googleMapsUrl} alt='directions' target='_blank' rel='noopener noreferrer'>
                     {name}
                 </a>
             </td>
