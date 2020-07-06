@@ -17,6 +17,8 @@ $angle-o: ($angle / 2);
     text-transform: uppercase;
     box-shadow: -6px 6px 0 $black;
     pointer-events: none;
+    margin-bottom: $spacing;
+    margin-top: -$spacing * 1.5;
 
     &.initial {
         pointer-events: all;
