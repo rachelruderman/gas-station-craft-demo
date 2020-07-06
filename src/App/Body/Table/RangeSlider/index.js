@@ -1,24 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { sentenceCase } from 'change-case';
 
 export const RangeSlider = (props) => {
-    
+
     const {
-        min,
-        max,
-        initialValue
+        rangeSlider,
+        updateFilter,
+        value,
     } = props;
 
-    const [value, setValue] = useState(initialValue);
-    console.log({setValue})
+    const {
+        type,
+        min,
+        max,
+    } = rangeSlider;
+
+    const text = `${sentenceCase(type)}: ${value}`;
+
+    const onChange = (e) => updateFilter( {[type]: e.target.value} );
+
     return (
-        <div className="slidecontainer">
-            <input
-                type="range"
-                min={min}
-                max={max}
-                value={value}
-                className="slider"
-            />
-        </div>
+        <>
+            {text}
+            <div className={`slidecontainer ${type}`}>
+                <input
+                    onChange={onChange}
+                    type="range"
+                    min={min}
+                    max={max}
+                    value={value}
+                    className="slider"
+                />
+            </div>
+        </>
+
     )
 }
