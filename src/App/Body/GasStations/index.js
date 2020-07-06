@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { capitalCase } from 'change-case';
 import { GasStation } from './GasStation';
 import { RangeSlider } from './RangeSlider';
 import { useInitialFilters } from './_hooks/useInitialFilters';
@@ -31,7 +32,7 @@ export const GasStations = (props) => {
                         <td className='logo'/>
                         <td>Distance</td>
                         <td>Station</td>
-                        <td>Gas Price</td>
+                        <td>{capitalCase(`${filters.fuelType}_price`)}</td>
                     </tr>
                 </thead>
                 <tbody>
