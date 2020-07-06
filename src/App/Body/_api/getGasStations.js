@@ -1,6 +1,7 @@
 const apiDomain = process.env.REACT_APP_MY_GAS_FEED_API_DOMAIN;
 const apiKey = process.env.REACT_APP_MY_GAS_FEED_API_KEY;
-
+const { env } = process;
+console.log({env})
 export const getGasStations = async (props) => {
 
     const {
