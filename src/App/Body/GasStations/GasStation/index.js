@@ -5,7 +5,7 @@ export const GasStation = (props) => {
     const {
         gasStation,
         className,
-        fuelTypeProperty,
+        priceProperty,
     } = props;
 
     const {
@@ -36,7 +36,7 @@ export const GasStation = (props) => {
     }
 
     const renderPrice = () => {
-        const price = gasStation[fuelTypeProperty];
+        const price = gasStation[priceProperty];
         return <td className='price'>${price}</td>
     }
 

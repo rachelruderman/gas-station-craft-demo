@@ -15,9 +15,15 @@ export const RangeSlider = (props) => {
         value,
     } = rangeSlider;
 
+    console.log({min, max, value})
     const text = `${sentenceCase(type)}: ${value}`;
 
-    const onChange = (e) => updateFilter( {[type]: e.target.value} );
+    const onChange = (e) => {
+        const { value } = e.target;
+        console.log({value, type})
+        return;
+        updateFilter( {[type]: e.target.value} )
+    };
 
     return (
         <>
@@ -26,8 +32,8 @@ export const RangeSlider = (props) => {
                 <input
                     onChange={onChange}
                     type="range"
-                    min={min}
-                    max={max}
+                    min={min.toString()}
+                    max={max.toString()}
                     value={value}
                     className="slider"
                 />

@@ -26,22 +26,21 @@ export const GasStations = (props) => {
     if (!filters.fuelType) {
         return null;
     }
-    
-    const fuelTypeProperty = `${filters.fuelType}_price`;
+
+    const priceProperty = `${filters.fuelType}_price`;
 
     const gasStations = allGasStations
         .filter(gasStation => {
-            const isMatchGasType = (gasStation[fuelTypeProperty] !== 'N/A');
             const isMatchDistance = (extractNumber(gasStation.distance) < filters.maxDistance);
-            const isMatchPrice = (extractNumber(gasStation.price) < filters.maxPrice);
-            return (isMatchGasType && isMatchDistance && isMatchPrice);
+            const isMatchPrice = (gasStation[priceProperty] !== 'N/A') && (extractNumber(gasStation[priceProperty]) < filters.maxPrice);
+            return (isMatchDistance && isMatchPrice);
         })
         .slice( (page * stationsPerPage), stationsPerPage);
 
     const renderTable = () => {
         const lowestPrice = getMinValue({
             array: gasStations,
-            property: fuelTypeProperty
+            property: priceProperty
         });
 
         return (
@@ -51,17 +50,17 @@ export const GasStations = (props) => {
                         <td className='logo'/>
                         <td>Distance</td>
                         <td>Station</td>
-                        <td>{capitalCase(fuelTypeProperty)}</td>
+                        <td>{capitalCase(priceProperty)}</td>
                     </tr>
                 </thead>
                 <tbody>
                     {gasStations.map( gasStation => {
-                        const hasLowestPrice = (gasStation[fuelTypeProperty] === lowestPrice.toString());
+                        const hasLowestPrice = (gasStation[priceProperty] === lowestPrice.toString());
                         const className = (hasLowestPrice) ? 'lowest-price' : '';
                         return (
                             <GasStation
                                 key={gasStation.id}
-                                fuelTypeProperty={fuelTypeProperty}
+                                priceProperty={priceProperty}
                                 className={className}
                                 fuelType={filters.fuelType}
                                 gasStation={gasStation} 
@@ -75,16 +74,16 @@ export const GasStations = (props) => {
 
     const renderFilters = () => {
         const rangeSliders = [
-            fuelTypeProperty,
-            'distance',
-        ].map(type => {
+            { type: priceProperty, filterKey: 'maxPrice' },
+            { type: 'distance', filterKey: 'maxDistance' },
+        ].map( ({type, filterKey}) => {
             const min = getMinValue({array: allGasStations, property: type});
             const max = getMaxValue({array: allGasStations, property: type});
             const lastGasStation = gasStations[gasStations.length - 1];
             const value = extractNumber(lastGasStation[type]);
-
             return ({
                 type,
+                filterKey,
                 min,
                 max,
                 value
