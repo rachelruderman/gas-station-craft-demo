@@ -9,6 +9,7 @@ This app uses run-of-the-mill `create-react-app`, so getting started is pretty s
 1. Register for [MyGasFeed API keys](http://www.mygasfeed.com/keys/api)
 2. Put the PRODUCTION key in `.env.local`. 
 > Wait a minute, shouldn't we use the DEV key?
+
 Absolutely yes, but MyGasFeed's dev API blocks the client with CORS, whereas the production API doesn't.
 2. Run `yarn install`
 3. Run `yarn start`
