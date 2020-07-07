@@ -31,6 +31,8 @@ exports[`should take a snapshot 1`] = `
       </div>
       <a
         href="https://clearbit.com"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         Logos provided by Clearbit
       </a>
