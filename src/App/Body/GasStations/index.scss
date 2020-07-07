@@ -2,6 +2,7 @@
 @import 'RangeSlider/index.scss';
 
 #gas-stations {
+    max-width: 85vw;
     table {
         border: 2px solid $black;
         margin-top: $spacing;
@@ -51,6 +52,12 @@
                 background-color: $gray;
                 color: $black;
             }
+        }
+    }
+
+    @media (max-width: 530px) { 
+        td, td:nth-child(2) {
+            padding: 0;
         }
     }
 }
