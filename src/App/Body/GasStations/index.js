@@ -42,10 +42,14 @@ export const GasStations = (props) => {
         if (!gasStations.length) {
             return (
                 <table>
-                    <tr>
-                        Ya better start walkin'... No gas stations found!&nbsp;
-                        <span role='img' aria-label='shocked'>🙀</span>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Ya better start walkin'... No gas stations found!&nbsp;
+                                <span role='img' aria-label='shocked'>🙀</span>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             )
         }
