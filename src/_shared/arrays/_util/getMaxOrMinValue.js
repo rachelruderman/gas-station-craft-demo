@@ -1,11 +1,11 @@
+import { isNumeric } from "../../numbers/isNumeric";
+
 export const getMaxOrMinValue = ({array, property, operation}) => {
     const values = (property)
         ? array.map(element => element[property])
         : array;
 
-    const numbers = values
-        .map(element => Number(element))
-        .filter(element => !isNaN(element))
+    const numericValues = values.filter(element => isNumeric(element));
     
-    return Math[operation](...numbers);
+    return Math[operation](...numericValues);
 }
