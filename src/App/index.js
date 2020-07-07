@@ -19,7 +19,9 @@ export const App = () => {
     return (
       <footer>
         <div>Fuel Up &copy; {currentYear}</div>
-        <a href="https://clearbit.com">Logos provided by Clearbit</a>
+        <a href="https://clearbit.com" target='_blank' rel='noopener noreferrer'>
+          Logos provided by Clearbit
+        </a>
       </footer>
     )
   }
