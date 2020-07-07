@@ -1,12 +1,5 @@
-import { extractNumber } from "../strings/extractNumber";
+import { getMaxOrMinValue } from "./_util/getMaxOrMinValue";
 
 export const getMaxValue = ({array, property}) => {
-    if (property) {
-        const mappedArray = array
-            .map(element => extractNumber(element[property]))
-            .filter(element => !isNaN(element)); // numbers only
-
-        return Math.max(...mappedArray);
-    }
-    return Math.max(array);
+    return getMaxOrMinValue ({array, property, operation: 'max'});
 }
