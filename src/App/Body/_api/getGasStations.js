@@ -1,3 +1,5 @@
+import { sanitizeMyGasFeedResponse } from "../_util/sanitizeMyGasFeedResponse";
+
 const apiDomain = process.env.REACT_APP_MY_GAS_FEED_API_DOMAIN;
 const apiKey = process.env.REACT_APP_MY_GAS_FEED_API_KEY;
 
@@ -19,5 +21,5 @@ export const getGasStations = async (props) => {
 
     const response = await fetch(url);
     const { stations } = await response.json();
-    return stations;
+    return sanitizeMyGasFeedResponse(stations);
 }

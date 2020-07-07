@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const GasStation = (props) => {
-
     const {
         gasStation,
         className,
@@ -18,9 +17,7 @@ export const GasStation = (props) => {
         country,
     } = gasStation;
 
-    const name = (station === 'Unbranded')
-        ? `Mystery station`
-        : station;
+    const name = (station || 'Mystery station');
 
     const renderName = () => {
         const urlEscapedAddress = `${address} ${city} ${zip} ${country}`.replace(/ /g, '+');
@@ -41,11 +38,8 @@ export const GasStation = (props) => {
     }
 
     const renderDistance = () => {
-        const miles = (distance === '1 miles')
-            ? '1 mile'
-            : distance;
-
-        return <td>{miles}</td>;
+        const noun = (distance === '1') ? 'mile' : 'miles';
+        return <td>{distance} {noun}</td>;
     }
 
     const renderLogo = () => {

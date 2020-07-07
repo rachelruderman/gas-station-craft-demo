@@ -32,7 +32,7 @@ export const GasStations = (props) => {
     const gasStations = allGasStations
         .filter(gasStation => {
             const isMatchDistance = (extractNumber(gasStation.distance) <= filters.maxDistance);
-            const isMatchPrice = (gasStation[priceProperty] !== 'N/A') && (extractNumber(gasStation[priceProperty]) <= filters.maxPrice);
+            const isMatchPrice = (gasStation[priceProperty] && (extractNumber(gasStation[priceProperty]) <= filters.maxPrice));
             return (isMatchDistance && isMatchPrice);
         })
         .slice( (page * stationsPerPage), stationsPerPage);

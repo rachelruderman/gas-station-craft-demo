@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { getGasStations } from "../_api/getGasStations"
 import { FETCHING_GAS_STATIONS, ERROR_NO_RESULTS } from "../_util/buttonStates";
 import myGasFeedResponse from '../_util/myGasFeedResponse.json';
+import { sanitizeMyGasFeedResponse } from "../_util/sanitizeMyGasFeedResponse";
 
 export const useFetchGasStations = (props) => {
     const { setButtonState, setGasStations, geocoordinates } = props;
@@ -19,8 +20,8 @@ export const useFetchGasStations = (props) => {
             catch (error) {
                 // This will always throw an error because the site is HTTPS and MyGasFeed is HTTP
                 // Return hardcoded response instead
-
-                setGasStations(myGasFeedResponse.stations);
+                const hardcodedResponse = sanitizeMyGasFeedResponse(myGasFeedResponse.stations);
+                setGasStations(hardcodedResponse);
 
                 // switch (error.code) {
                 //     case ('408'):
