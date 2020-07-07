@@ -41,6 +41,7 @@
     width: 100%;
     justify-content: space-between;
     a {
+      color: $white-with-opacity;
       margin-right: 60px; // todo - figure out why width is overflowing
     }
   }
